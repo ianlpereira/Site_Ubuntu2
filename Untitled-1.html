@@ -1,3 +1,4 @@
+@@ -0,0 +1,615 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -158,6 +159,9 @@
     height: auto;
     margin: auto;
     }
+    .button{
+      margin: 0 auto;
+    }
   @keyframes slide {
     0% {
       opacity: 0;
@@ -184,8 +188,10 @@
       margin: 25px 0;
     }
     .btn-lg {
-        width: 100%;
-        margin-bottom: 35px;
+        width: 50%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
     .centralizado {
     width: 50%;
@@ -217,7 +223,7 @@
         <li><a href="#about">SOBRE</a></li>
         <li><a href="#services">PROJETOS</a></li>
         <li><a href="#portfolio">GALERIA</a></li>
-        <li><a href="#formulario">SE INSCREVA</a></li>
+        <li><a href="#butform">SE INSCREVA</a></li>
         <li><a href="#contact">CONTATO</a></li>
       </ul>
     </div>
@@ -235,7 +241,7 @@
     <div class="col-sm-8">
       <h2>O que é UBUNTU?</h2><br>
       <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori...(line truncated)...
       <br>
     </div>
     <div class="col-sm-4">
@@ -351,18 +357,20 @@
 </div>
 
 <!-- Container (Form Section) -->
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formulario">SE INSCREVA</button>
+<div class="container-fluid centralizado" id="butform">
+<button type="button" class="btn-lg btn-warning" data-toggle="collapse" data-target="#formulario" id="butform1">SE INSCREVA</button>
+</div>
 <div class="container collapse" id="formulario">
 <form action="form_post.php" method="POST" role="form" class="form-horizontal">
 <legend>Pessoal</legend>
 <div class="form-group">
     <label for="firstname" class="col-sm-2">Name</label>
     <div class="col-sm-4">
-    	<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
+    	<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Nome">
     </div>
     <label for="lastname" class="col-sm-2">Sobrenome</label>
     <div class="col-sm-4">
-    	<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name">
+    	<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Sobrenome">
     </div>
 </div>
 <div class="form-group">
@@ -456,17 +464,36 @@
 </div>
 
 <!-- Add Google Maps -->
-<div id="googleMap" style="height:400px;width:100%;"></div>
-<script>
-function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <h3>Local da Próxima Ação</h3>
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -2.504792, lng: -44.257183};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAILK2y7WPDFJ3GP7SNE-S47kUqTANEh04&callback=initMap">
+    </script>
+  </body>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
