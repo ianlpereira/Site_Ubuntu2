@@ -29,7 +29,7 @@
       color: #303030;
       font-weight: 400;
       margin-bottom: 30px;
-  }  
+  }
   .jumbotron {
       background-color: #f4511e;
       color: #fff;
@@ -81,7 +81,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #f4511e; 
+      border: 1px solid #f4511e;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -162,7 +162,7 @@
     0% {
       opacity: 0;
       transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       transform: translateY(0%);
@@ -172,7 +172,7 @@
     0% {
       opacity: 0;
       -webkit-transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       -webkit-transform: translateY(0%);
@@ -208,7 +208,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#myPage">INÍCIO</a>
     </div>
@@ -225,8 +225,8 @@
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>UBUNTU</h1> 
-  <p>Sou quem sou por que somos todos nós</p> 
+  <h1>UBUNTU</h1>
+  <p>Sou quem sou por que somos todos nós</p>
 </div>
 
 <!-- Container (About Section) -->
@@ -315,7 +315,7 @@
       </a>
     </div>
   </div><br>
-  
+
   <h2>Relatos de voluntários</h2>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <!-- Indicators -->
@@ -351,7 +351,7 @@
 </div>
 
 <!-- Container (Form Section) -->
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formulario">Se INSCREVA</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formulario">SE INSCREVA</button>
 <div class="container collapse" id="formulario">
 <form action="form_post.php" method="POST" role="form" class="form-horizontal">
 <legend>Pessoal</legend>
@@ -400,10 +400,12 @@
     <div class="col-sm-4">
         <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
     </div>
-    <label for="address" class="col-sm-2">Estado</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
-    </div>
+</div>
+<div class="form-group">
+  <label for="address" class="col-sm-2">Estado</label>
+  <div class="col-sm-4">
+      <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
+  </div>
 </div>
 <legend>Informação de Contato</legend>
 <div class="form-group">
@@ -439,7 +441,7 @@
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Nome" type="text" required>
         </div>
-        <div class="col-sm-6 form-group">   
+        <div class="col-sm-6 form-group">
           <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
         </div>
       </div>
@@ -494,13 +496,13 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 700, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
     } // End if
   });
-  
+
   $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
@@ -516,14 +518,14 @@ $(document).ready(function(){
 <!--Seção CEP -->
 <!-- Adicionando Javascript -->
     <script type="text/javascript" >
-    
+
     function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value=("");
             document.getElementById('bairro').value=("");
             document.getElementById('cidade').value=("");
             document.getElementById('estado').value=("");
-            
+
     }
 
     function meu_callback(conteudo) {
@@ -533,7 +535,7 @@ $(document).ready(function(){
             document.getElementById('bairro').value=(conteudo.bairro);
             document.getElementById('cidade').value=(conteudo.localidade);
             document.getElementById('estado').value=(conteudo.uf);
-            
+
         } //end if.
         else {
             //CEP não Encontrado.
@@ -541,7 +543,7 @@ $(document).ready(function(){
             alert("CEP não encontrado.");
         }
     }
-        
+
     function pesquisacep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -561,7 +563,7 @@ $(document).ready(function(){
                 document.getElementById('bairro').value="...";
                 document.getElementById('cidade').value="...";
                 document.getElementById('estado').value="...";
-                
+
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
