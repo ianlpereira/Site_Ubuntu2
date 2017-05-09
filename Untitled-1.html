@@ -363,7 +363,7 @@
 <button type="button" class="btn-lg btn-warning" data-toggle="collapse" data-target="#formulario" id="butform1">SE INSCREVA</button>
 </div>
 <div class="container collapse" id="formulario">
-<form action="form_post.php" method="POST" role="form" class="form-horizontal">
+<form action="form_post.php" method="POST" role="form" class="form-horizontal" id="formulario">
 <legend>Pessoal</legend>
 <div class="form-group">
     <label for="firstname" class="col-sm-2">Name</label>
@@ -616,5 +616,32 @@ $(document).ready(function(){
         }
     };
   </script>
+
+
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+
+          $('#formulario').on('submit', function (e) {
+
+            e.preventDefault();
+
+            $.ajax({
+              type: 'POST',
+              url: 'form_post.php',
+              data: $('#formulario').serialize(),
+              success: function () {
+                alert('form was submitted');
+              },
+              error: function (jXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+              }
+            });
+
+          });
+
+        });
+
+      </script>
 </body>
 </html>
