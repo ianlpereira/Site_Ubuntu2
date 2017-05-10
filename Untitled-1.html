@@ -359,81 +359,112 @@
 </div>
 
 <!-- Container (Form Section) -->
-<div class="container-fluid centralizado" id="butform">
-<button type="button" class="btn-lg btn-warning" data-toggle="collapse" data-target="#formulario" id="butform1">SE INSCREVA</button>
-</div>
-<div class="container collapse" id="formulario">
-<form action="form_post.php" method="POST" role="form" class="form-horizontal" id="formulario">
-<legend>Pessoal</legend>
-<div class="form-group">
-    <label for="firstname" class="col-sm-2">Name</label>
-    <div class="col-sm-4">
-    	<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Nome">
+<div class="container-fluid centralizado" id="divBtnForm">
+<!--<button type="button" class="btn-lg btn-warning" data-toggle="collapse" data-target="#formulario" id="butform1">SE INSCREVA</button>-->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SE INSCREVA</button>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content container-fluid">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+
+      <div class="modal-body">
+        <form action="form_post.php" method="POST" role="form" class="form-horizontal" id="formulario_cadastro">
+        <legend>Pessoal</legend>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2">Name</label>
+            <div class="col-sm-4">
+            	<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Nome">
+            </div>
+            <label for="lastname" class="col-sm-2">Sobrenome</label>
+            <div class="col-sm-4">
+            	<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Sobrenome">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gender" class="col-sm-2">Gênero</label>
+            <div class="col-sm-4">
+                <label class="radio-inline">
+                <input type="radio" name="gender" id="male" value="male"> Masculino
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="gender" id="female" value="female"> Fêminino
+                </label>
+            </div>
+            <label for="dob" class="col-sm-2">Data de Nascimento</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" name="dob" id="dob" placeholder="mm/dd/yyyy">
+            </div>
+        </div>
+        <legend>Endereço</legend>
+        <div class="form-group">
+            <label for="zipcode" class="col-sm-2">CEP</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);">
+            </div>
+            <label for="city" class="col-sm-2">Cidade</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="address" class="col-sm-2">Rua</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+            </div>
+            <label for="address" class="col-sm-2">Bairro</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="address" class="col-sm-2">Estado</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
+          </div>
+        </div>
+        <legend>Informação de Contato</legend>
+        <div class="form-group">
+            <label for="phone" class="col-sm-2">Telefone</label>
+            <div class="col-sm-4">
+                <input type="tel" pattern="^\([1-9]{2}\) [2-9][0-9]{4,5}\-[0-9]{4}" class="form-control" name="phone" id="phone" placeholder="Número de Telefone">
+            </div>
+            <label for="email" class="col-sm-2">Email</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="modal-footer">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning" name="submit" id="botao_cadastro">Enviar</button>
+            </div>
+        </div>
+      </div>
+        </form>
+      </div>
+
+
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>-->
     </div>
-    <label for="lastname" class="col-sm-2">Sobrenome</label>
-    <div class="col-sm-4">
-    	<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Sobrenome">
-    </div>
-</div>
-<div class="form-group">
-    <label for="gender" class="col-sm-2">Gênero</label>
-    <div class="col-sm-4">
-        <label class="radio-inline">
-        <input type="radio" name="gender" id="male" value="male"> Masculino
-        </label>
-        <label class="radio-inline">
-        <input type="radio" name="gender" id="female" value="female"> Fêminino
-        </label>
-    </div>
-    <label for="dob" class="col-sm-2">Data de Nascimento</label>
-    <div class="col-sm-4">
-        <input type="date" class="form-control" name="dob" id="dob" placeholder="mm/dd/yyyy">
-    </div>
-</div>
-<legend>Endereço</legend>
-<div class="form-group">
-    <label for="zipcode" class="col-sm-2">CEP</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);">
-    </div>
-    <label for="city" class="col-sm-2">Cidade</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
-    </div>
-</div>
-<div class="form-group">
-  <label for="address" class="col-sm-2">Rua</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
-    </div>
-    <label for="address" class="col-sm-2">Bairro</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
-    </div>
-</div>
-<div class="form-group">
-  <label for="address" class="col-sm-2">Estado</label>
-  <div class="col-sm-4">
-      <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado">
+
   </div>
 </div>
-<legend>Informação de Contato</legend>
-<div class="form-group">
-    <label for="phone" class="col-sm-2">Telefone</label>
-    <div class="col-sm-4">
-        <input type="tel" pattern="^\([1-9]{2}\) [2-9][0-9]{4,5}\-[0-9]{4}" class="form-control" name="phone" id="phone" placeholder="Número de Telefone">
-    </div>
-    <label for="email" class="col-sm-2">Email</label>
-    <div class="col-sm-4">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-    </div>
-</div>
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-warning" name="submit" id="submit">Enviar</button>
-    </div>
-</div>
-</form>
+
+
+
+
+
 </div>
 <!-- Container (Contato Section) -->
 
@@ -619,7 +650,8 @@ $(document).ready(function(){
 
 
 
-  <script type="text/javascript">
+  <!--<script type="text/javascript">
+
         $(document).ready(function () {
 
           $('#formulario').on('submit', function (e) {
@@ -642,6 +674,42 @@ $(document).ready(function(){
 
         });
 
-      </script>
+      </script>-->
+
+
+<script>
+/* must apply only after HTML has loaded */
+$(document).ready(function () {
+    $('#formulario_cadastro').on('submit', function(e) {
+
+e.preventDefault();
+        var postData = $(this).serializeArray();
+        var form_post = $(this).attr("action");
+
+        $.ajax({
+            url: form_post,
+            type: "POST",
+            data: postData,
+            success: function(data, textStatus, jqXHR) {
+                $('#myModal .modal-header .modal-title').html("Result");
+                $('#myModal .modal-body').html(data);
+                $("#botao_cadastro").remove();
+            },
+            error: function(jqXHR, status, error) {
+                console.log(status + ": " + error);
+            }
+
+        });
+
+    });
+
+    $("#botao_cadastro").on('click', function() {
+        $("#formulario_cadastro").submit();
+
+    });
+});
+</script>
+
+
 </body>
 </html>

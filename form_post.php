@@ -15,9 +15,10 @@ $cep=$_POST['cep'];
 $phone=$_POST['phone'];
 $email=$_POST['email'];
 $bairro=$_POST['bairro'];
- 
+
+
 // Validation will be added here
- 
+
 if ($errorMessage != "" ) {
 echo "<p class='message'>" .$errorMessage. "</p>" ;
 }
@@ -25,7 +26,7 @@ else{
 //Inserting record in table using INSERT query
 $insqDbtb="INSERT INTO `ubuntu`.`members`
 (`firstname`, `lastname`, `gender`, `dob`, `rua`,
-`cidade`, `cep`, `phone`, `email`, `bairro`) VALUES ('$firstname', '$lastname', 
+`cidade`, `cep`, `phone`, `email`, `bairro`) VALUES ('$firstname', '$lastname',
 '$gender', '$dob', '$rua', '$cidade', '$cep', '$phone', '$email','$bairro')";
 mysqli_query($link,$insqDbtb) or die(mysqli_error($link));
 }
